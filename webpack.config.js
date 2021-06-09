@@ -84,6 +84,12 @@ module.exports = {
             plugins: ["@babel/plugin-proposal-class-properties"]
           }
         }
+      },
+      {
+        test: /\.(hbs)$/,
+        // npm i -D handlebars-loader
+        // npm i handlebars
+        use: ["handlebars-loader"]
       }
     ]
   },
@@ -104,7 +110,8 @@ module.exports = {
     }),
     // npm i -D html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: "Webpack 5"
+      title: "Webpack 5 HBS Template",
+      template: "src/index.hbs"
     }),
   ]
 }
