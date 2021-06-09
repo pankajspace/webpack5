@@ -1,0 +1,12 @@
+.button {
+  font-size: 20px;
+  padding: 7px 15px;
+  background: darkgreen;
+  color: white;
+  outline: none;
+}
+
+.text {
+  color: green;
+  font-weight: bold;
+}

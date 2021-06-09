@@ -36,6 +36,14 @@ module.exports = {
         test: /\.(txt)$/,
         type: "asset/source", //for adding text files as inline string, this will not generate a separate file
       },
+      {
+        test: /\.(css)$/,
+        use: [
+          // npm i -D style-loader css-loader
+          "style-loader", //takess the css content and loads it into html file using style tags
+          "css-loader"  //reads the contents of css file and returns
+        ]
+      }
     ]
   }
 }
