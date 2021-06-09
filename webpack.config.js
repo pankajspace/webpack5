@@ -19,9 +19,18 @@ module.exports = {
       //   // type: "asset/source", //for text files 
       //   // type: "asset",  //webpack will decide based on file size what to do
       // },
+      // {
+      //   test: /\.(png|jpg)$/,
+      //   type: "asset/inline",
+      // },
       {
         test: /\.(png|jpg)$/,
-        type: "asset/inline",
+        type: "asset",  //if filesize is less than 8kb webpack will handle it as asset/inline and if greater webpack will handle it as asset/resource,
+        parser: {
+          dataUrlCondition: {
+            maxSize: 10 * 1024  //this property is used to midify default 8kb size of webpack for general resource
+          }
+        }
       },
     ]
   }
