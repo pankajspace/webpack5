@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "bundle.[contenthash].js",
+    filename: "bundle.js",
     path: path.resolve(__dirname, "./dist"),
     publicPath: ""
   },
@@ -61,7 +61,7 @@ module.exports = {
   plugins: [
     // npm i -D mini-css-extract-plugin
     new MiniCssExtractPlugin({
-      filename: "styles.[contenthash].css"
+      filename: "styles.css"
     }),
     // npm i -D clean-webpack-plugin
     // new CleanWebpackPlugin(), //it will delete the folder mentioned in "path" everytime
