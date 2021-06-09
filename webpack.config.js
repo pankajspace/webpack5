@@ -12,17 +12,17 @@ module.exports = {
   mode: "none",
   module: {
     rules: [
+      // {
+      //   test: /\.(png|jpg)$/,
+      //   type: "asset/resource", //for big files like images, fonts
+      //   // type: "asset/inline", //for small files like svg etc
+      //   // type: "asset/source", //for text files 
+      //   // type: "asset",  //webpack will decide based on file size what to do
+      // },
       {
         test: /\.(png|jpg)$/,
-        type: "asset/resource", //for images, fonts
-        // type: "asset/inline", //for svg etc
-        // type: "asset/source", //for text files 
-        // type: "asset",  //webpack will decide based on file size what to do
+        type: "asset/inline",
       },
-      {
-        test: /\.(ttf)$/,
-        type: "asset/resource",
-      }
     ]
   }
 }
