@@ -1,12 +1,14 @@
+$color: darkgreen;
+
 .button {
   font-size: 20px;
   padding: 7px 15px;
-  background: darkgreen;
+  background: $color;
   color: white;
   outline: none;
 }
 
 .text {
-  color: darkgreen;
+  color: $color;
   font-weight: bold;
 }

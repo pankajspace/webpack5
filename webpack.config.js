@@ -40,8 +40,17 @@ module.exports = {
         test: /\.(css)$/,
         use: [
           // npm i -D style-loader css-loader
-          "style-loader", //takess the css content and loads it into html file using style tags
-          "css-loader"  //reads the contents of css file and returns
+          "style-loader", //takes the content from css-loader and loads it into html file using style tags
+          "css-loader"  //reads the contents of css file and returns js representation
+        ]
+      },
+      {
+        test: /\.(scss)$/,
+        use: [
+          // npm i -D sass sass-loader
+          "style-loader", //takes the content from css-loader and loads it into html file using style tags
+          "css-loader",  //takes the contents from sass-loader and returns js representation
+          "sass-loader"  //reads the sass file contents and convert to css
         ]
       }
     ]
