@@ -11,6 +11,13 @@ module.exports = {
     publicPath: ""
   },
   mode: "production",
+  // npm i webpack-dev-server -D
+  devServer: {
+    contentBase: path.resolve(__dirname, "./dist"),
+    index: "index.html",
+    port: 9000,
+    writeToDisk: true
+  },
   module: {
     rules: [
       {
