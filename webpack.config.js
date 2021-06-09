@@ -1,4 +1,5 @@
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -66,5 +67,9 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    // npm i -D terser-webpack-plugin 
+    new TerserPlugin()  //webpack 5 includes this pluging by default so no need add here for webpack 5
+  ]
 }
