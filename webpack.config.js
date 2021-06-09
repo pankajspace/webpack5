@@ -32,6 +32,10 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.(txt)$/,
+        type: "asset/source", //for adding text files as inline string, this will not generate a separate file
+      },
     ]
   }
 }
