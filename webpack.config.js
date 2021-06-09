@@ -2,6 +2,7 @@ const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -10,7 +11,8 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"),
     // publicPath: "auto",  //default in webpack 5
     // publicPath: "http://some-cdn.com/",  //when our assets are located in cdn
-    publicPath: "dist/"   //path where assets are located
+    // publicPath: "dist/"   //path where assets are located
+    publicPath: ""
   },
   mode: "none",
   module: {
@@ -100,5 +102,7 @@ module.exports = {
         path.join(process.cwd(), "build/**/*")  //for deleting multiple folders
       ]
     }),
+    // npm i -D html-webpack-plugin
+    new HtmlWebpackPlugin(),
   ]
 }
