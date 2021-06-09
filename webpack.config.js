@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "bundle.js",
+    filename: "bundle.[contenthash].js",
     path: path.resolve(__dirname, "./dist"),
     // publicPath: "auto",  //default in webpack 5
     // publicPath: "http://some-cdn.com/",  //when our assets are located in cdn
@@ -89,7 +89,7 @@ module.exports = {
     new TerserPlugin(),  //webpack 5 includes this pluging by default so no need add here for webpack 5
     // npm i -D mini-css-extract-plugin
     new MiniCssExtractPlugin({
-      filename: "styles.css"
+      filename: "styles.[contenthash].css"
     })
   ]
 }
