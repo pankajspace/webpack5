@@ -103,6 +103,8 @@ module.exports = {
       ]
     }),
     // npm i -D html-webpack-plugin
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "Webpack 5"
+    }),
   ]
 }
