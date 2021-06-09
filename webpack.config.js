@@ -52,6 +52,18 @@ module.exports = {
           "css-loader",  //takes the contents from sass-loader and returns js representation
           "sass-loader"  //reads the sass file contents and convert to css
         ]
+      },
+      {
+        test: /\.(js)$/,
+        exclude: /node_modules/,
+        use: {
+          // npm i -D @babel/core babel-loader @babel/preset-env @babel/plugin-proposal-class-properties
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/env"],
+            plugins: ["@babel/plugin-proposal-class-properties"]
+          }
+        }
       }
     ]
   }
