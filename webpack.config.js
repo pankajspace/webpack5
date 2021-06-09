@@ -1,5 +1,6 @@
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -37,19 +38,34 @@ module.exports = {
         test: /\.(txt)$/,
         type: "asset/source", //for adding text files as inline string, this will not generate a separate file
       },
+      // {
+      //   test: /\.(css)$/,
+      //   use: [
+      //     // npm i -D style-loader css-loader
+      //     "style-loader", //takes the content from css-loader and loads it into html file using style tags
+      //     "css-loader"  //reads the contents of css file and returns js representation
+      //   ]
+      // },
       {
         test: /\.(css)$/,
         use: [
-          // npm i -D style-loader css-loader
-          "style-loader", //takes the content from css-loader and loads it into html file using style tags
+          MiniCssExtractPlugin.loader,  //extracts css file into separate bundle
           "css-loader"  //reads the contents of css file and returns js representation
         ]
       },
+      // {
+      //   test: /\.(scss)$/,
+      //   use: [
+      //     // npm i -D sass sass-loader
+      //     "style-loader", //takes the content from css-loader and loads it into html file using style tags
+      //     "css-loader",  //takes the contents from sass-loader and returns js representation
+      //     "sass-loader"  //reads the sass file contents and convert to css
+      //   ]
+      // },
       {
         test: /\.(scss)$/,
         use: [
-          // npm i -D sass sass-loader
-          "style-loader", //takes the content from css-loader and loads it into html file using style tags
+          MiniCssExtractPlugin.loader,  //extracts css file into separate bundle
           "css-loader",  //takes the contents from sass-loader and returns js representation
           "sass-loader"  //reads the sass file contents and convert to css
         ]
@@ -70,6 +86,10 @@ module.exports = {
   },
   plugins: [
     // npm i -D terser-webpack-plugin 
-    new TerserPlugin()  //webpack 5 includes this pluging by default so no need add here for webpack 5
+    new TerserPlugin(),  //webpack 5 includes this pluging by default so no need add here for webpack 5
+    // npm i -D mini-css-extract-plugin
+    new MiniCssExtractPlugin({
+      filename: "styles.css"
+    })
   ]
 }
