@@ -1,6 +1,7 @@
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -90,6 +91,14 @@ module.exports = {
     // npm i -D mini-css-extract-plugin
     new MiniCssExtractPlugin({
       filename: "styles.[contenthash].css"
-    })
+    }),
+    // npm i -D clean-webpack-plugin
+    // new CleanWebpackPlugin(), //it will delete the folder mentioned in "path" everytime
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [
+        "**/*",  //delete all folders and files in folder mentioned in "path"
+        path.join(process.cwd(), "build/**/*")  //for deleting multiple folders
+      ]
+    }),
   ]
 }
