@@ -4,7 +4,10 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "./dist")
+    path: path.resolve(__dirname, "./dist"),
+    // publicPath: "auto",  //default in webpack 5
+    // publicPath: "http://some-cdn.com/",  //when our assets are located in cdn
+    publicPath: "dist/"   //path where assets are located
   },
   mode: "none",
   module: {
