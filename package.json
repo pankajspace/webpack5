@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build-prod": "webpack --config webpack.production.config.js",
+    "build-dev": "webpack --config webpack.development.config.js"
   },
   "dependencies": {
     "handlebars": "^4.7.7"
