@@ -83,8 +83,18 @@ module.exports = {
     }),
     // npm i -D html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: "Webpack 5 HBS Template",
-      template: "src/index.hbs"
+      filename: "greetings.html",
+      chunks: ["greetings"],
+      title: "Greetings",
+      template: "src/index.hbs",
+      minify: false
     }),
+    new HtmlWebpackPlugin({
+      filename: "kiwi.html",
+      chunks: ["kiwi"],
+      title: "Kiwi",
+      template: "src/index.hbs",
+      minify: false
+    })
   ]
 }
