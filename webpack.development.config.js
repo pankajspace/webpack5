@@ -14,7 +14,7 @@ module.exports = {
     publicPath: ""
   },
   mode: "development",
-   optimization: {
+  optimization: {
     splitChunks: {
       chunks: "all",
       minsize: 3 * 1024  //minimum size for creating a separate chunk
