@@ -17,7 +17,7 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: "all",
-      minsize: 3 * 1024  //minimum size for creating a separate chunk
+      minSize: 3 * 1024  //minimum size for creating a separate chunk
     }
   },
   // npm i webpack-dev-server -D
