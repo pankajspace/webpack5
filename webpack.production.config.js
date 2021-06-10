@@ -14,6 +14,11 @@ module.exports = {
     publicPath: ""
   },
   mode: "production",
+   optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
+  },
   // npm i webpack-dev-server -D
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),

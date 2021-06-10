@@ -1,9 +1,11 @@
+import _ from "lodash";
+
 import ButtonHW from "./components/button/button";
 import Heading from "./components/heading/heading";
 import Image from "./components/image/image";
 
 const heading = new Heading();
-heading.render();
+heading.render(_.upperFirst("greetings"));
 
 const button = new ButtonHW();
 button.render();

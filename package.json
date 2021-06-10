@@ -11,7 +11,8 @@
     "serve-prod": "webpack serve --config webpack.production.config.js --hot"
   },
   "dependencies": {
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
