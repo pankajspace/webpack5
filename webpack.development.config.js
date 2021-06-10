@@ -4,10 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: {
-    "kiwi": "./src/kiwi.js",
-    "greetings": "./src/greetings.js",
-  },
+  entry: "./src/index.js",
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "./dist"),
@@ -89,16 +86,8 @@ module.exports = {
     }),
     // npm i -D html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: "greetings.html",
-      chunks: ["greetings"],
-      title: "Greetings",
-      template: "src/index.hbs",
-      minify: false
-    }),
-    new HtmlWebpackPlugin({
-      filename: "kiwi.html",
-      chunks: ["kiwi"],
-      title: "Kiwi",
+      filename: "index.html",
+      title: "Webpack 5",
       template: "src/index.hbs",
       minify: false
     })
