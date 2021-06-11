@@ -2,13 +2,14 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   entry: "./src/greetings.js",
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "./dist"),
-    publicPath: ""
+    publicPath: "http://localhost:9001/"
   },
   mode: "development",
   optimization: {
@@ -74,6 +75,13 @@ module.exports = {
       title: "Greetings",
       template: "src/index.hbs",
       minify: false
+    }),
+    new ModuleFederationPlugin({
+      name: "GreetingsApp",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./GreetingsButton": "./src/components/button/button"
+      }
     })
   ]
 }

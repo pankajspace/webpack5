@@ -2,6 +2,7 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   entry: "./src/kiwi.js",
@@ -82,5 +83,11 @@ module.exports = {
       title: "Kiwi",
       template: "src/index.hbs"
     }),
+    new ModuleFederationPlugin({
+      name: "KiwiApp",
+      remotes: {
+        "GreetingsApp": "GreetingsApp@htp://localhost:9001/remoteEntry.js"
+      }
+    })
   ]
 }
