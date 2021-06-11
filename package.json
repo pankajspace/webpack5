@@ -8,7 +8,8 @@
     "build-prod": "webpack --config webpack.production.config.js",
     "build-dev": "webpack --config webpack.development.config.js",
     "serve-dev": "webpack serve --config webpack.development.config.js --hot",
-    "serve-prod": "webpack serve --config webpack.production.config.js --hot"
+    "serve-prod": "webpack serve --config webpack.production.config.js --hot",
+    "server": "node src/server.js"
   },
   "dependencies": {
     "handlebars": "^4.7.7",
