@@ -1,14 +1,17 @@
-$color: darkgreen;
-
 .button {
   font-size: 20px;
   padding: 7px 15px;
-  background: $color;
+  background: darkgreen;
   color: white;
   outline: none;
 }
 
 .text {
-  color: $color;
+  color: darkgreen;
   font-weight: bold;
 }
+h1 {
+  color: darkslateblue;
+}
+
+/*# sourceMappingURL=main.css.map*/

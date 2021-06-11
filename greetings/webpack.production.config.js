@@ -4,10 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: {
-    "kiwi": "./src/kiwi.js",
-    "greetings": "./src/greetings.js",
-  },
+  entry: "./src/greetings.js",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "./dist"),
@@ -23,28 +20,12 @@ module.exports = {
   // npm i webpack-dev-server -D
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
-    index: "index.html",
-    port: 9000,
+    index: "greetings.html",
+    port: 9001,
     writeToDisk: true
   },
   module: {
     rules: [
-      {
-        test: /\.(png|jpg)$/,
-        type: "asset",  //if filesize is less than 8kb webpack will handle it as asset/inline and if greater webpack will handle it as asset/resource,
-        parser: {
-          dataUrlCondition: {
-            maxSize: 10 * 1024  //this property is used to midify default 8kb size of webpack for general resource
-          }
-        }
-      },
-      {
-        test: /\.(css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,  //extracts css file into separate bundle
-          "css-loader"  //reads the contents of css file and returns js representation
-        ]
-      },
       {
         test: /\.(scss)$/,
         use: [
@@ -89,15 +70,8 @@ module.exports = {
     // npm i -D html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: "greetings.html",
-      chunks: ["greetings"],
       title: "Greetings",
       template: "src/index.hbs"
-    }),
-    new HtmlWebpackPlugin({
-      filename: "kiwi.html",
-      chunks: ["kiwi"],
-      title: "Kiwi",
-      template: "src/index.hbs"
-    }),
+    })
   ]
 }

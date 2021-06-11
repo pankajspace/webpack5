@@ -4,16 +4,13 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: {
-    "kiwi": "./src/kiwi.js",
-    "greetings": "./src/greetings.js",
-  },
+  entry: "./src/kiwi.js",
   output: {
-    filename: "[name].js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "./dist"),
     publicPath: ""
   },
-  mode: "development",
+  mode: "production",
   optimization: {
     splitChunks: {
       chunks: "all",
@@ -23,11 +20,10 @@ module.exports = {
   // npm i webpack-dev-server -D
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
-    index: "index.html",
-    port: 9000,
+    index: "kiwi.html",
+    port: 9002,
     writeToDisk: true
   },
-  devtool: "source-map",
   module: {
     rules: [
       {
@@ -38,13 +34,6 @@ module.exports = {
             maxSize: 10 * 1024  //this property is used to midify default 8kb size of webpack for general resource
           }
         }
-      },
-      {
-        test: /\.(css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,  //extracts css file into separate bundle
-          "css-loader"  //reads the contents of css file and returns js representation
-        ]
       },
       {
         test: /\.(scss)$/,
@@ -77,7 +66,7 @@ module.exports = {
   plugins: [
     // npm i -D mini-css-extract-plugin
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name].[contenthash].css"
     }),
     // npm i -D clean-webpack-plugin
     // new CleanWebpackPlugin(), //it will delete the folder mentioned in "path" everytime
@@ -89,18 +78,9 @@ module.exports = {
     }),
     // npm i -D html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: "greetings.html",
-      chunks: ["greetings"],
-      title: "Greetings",
-      template: "src/index.hbs",
-      minify: false
-    }),
-    new HtmlWebpackPlugin({
       filename: "kiwi.html",
-      chunks: ["kiwi"],
       title: "Kiwi",
-      template: "src/index.hbs",
-      minify: false
-    })
+      template: "src/index.hbs"
+    }),
   ]
 }
