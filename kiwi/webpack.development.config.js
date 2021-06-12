@@ -87,8 +87,9 @@ module.exports = {
     }),
     new ModuleFederationPlugin({
       name: "KiwiApp",
-      remotes: {
-        "GreetingsApp": "GreetingsApp@http://localhost:9001/remoteEntry.js"
+      filename: "remoteEntry.js",
+      exposes: {
+        "./KiwiPage": "./src/kiwi.js"
       }
     })
   ]
