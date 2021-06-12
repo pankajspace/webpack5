@@ -78,7 +78,7 @@ module.exports = {
       name: "GreetingsApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./GreetingsButton": "./src/components/button/button"
+        "./GreetingsPage": "./src/greetings"
       }
     })
   ]
