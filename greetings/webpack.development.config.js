@@ -80,7 +80,7 @@ module.exports = {
       name: "GreetingsApp",
       filename: "remoteEntry.js",
       exposes: {
-        "./GreetingsPage": "./src/greetings"
+        "./GreetingsPage": "./src/greetings.js"
       }
     })
   ]
