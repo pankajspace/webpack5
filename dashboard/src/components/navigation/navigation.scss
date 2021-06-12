@@ -1,0 +1,15 @@
+.navigation-bar {
+  background: darkgreen;
+  margin: 0;
+  li {
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+    display: inline-block;
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      color: white;
+    }
+  }
+}
