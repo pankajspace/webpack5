@@ -9,7 +9,7 @@ export default function Navigation(navigationItems) {
     `
   });
   const ul = document.createElement("ul");
-  ul.innerHTML(navItems).join("");
+  ul.innerHTML = navItems.join("");
   ul.classList.add("navigation-bar");
   document.querySelector("body").appendChild(ul);
 }
