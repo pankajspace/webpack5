@@ -14,6 +14,7 @@ module.exports = {
   // npm i webpack-dev-server -D
   devServer: {
     open: true,
+    hot: true,
     contentBase: path.resolve(__dirname, "./dist"),
     index: "index.html",
     port: 9000,
@@ -47,22 +48,15 @@ module.exports = {
         ]
       },
       {
-        test: /\.(js)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           // npm i -D @babel/core babel-loader @babel/preset-env @babel/plugin-proposal-class-properties
           loader: "babel-loader",
           options: {
-            presets: ["@babel/env"],
-            plugins: ["@babel/plugin-proposal-class-properties"]
+            presets: ["@babel/preset-react"]
           }
         }
-      },
-      {
-        test: /\.(hbs)$/,
-        // npm i -D handlebars-loader
-        // npm i handlebars
-        use: ["handlebars-loader"]
       }
     ]
   },
@@ -81,8 +75,7 @@ module.exports = {
     }),
     // npm i -D html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: "Webpack 5 HBS Template",
-      template: "src/index.hbs"
-    }),
+      template: "public/index.html"
+    })
   ]
 }
