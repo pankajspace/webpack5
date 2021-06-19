@@ -13,6 +13,7 @@ module.exports = {
   mode: "production",
   // npm i webpack-dev-server -D
   devServer: {
+    open: true,
     contentBase: path.resolve(__dirname, "./dist"),
     index: "index.html",
     port: 9000,
